@@ -25,7 +25,7 @@ let registerContractHandlers = (
 let registerAllHandlers = () => {
   registerContractHandlers(
     ~contractName="SwapContract",
-    ~handlerPathRelativeToGeneratedSrc="../../src/EventHandlers.ts",
-    ~handlerPathRelativeToConfig="src/EventHandlers.ts",
+    ~handlerPathRelativeToGeneratedSrc="../../src/EventHandlers.js",
+    ~handlerPathRelativeToConfig="src/EventHandlers.js",
   )
 }

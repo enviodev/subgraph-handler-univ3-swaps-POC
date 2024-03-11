@@ -211,7 +211,7 @@ module EntityHistory = {
 module Swap = {
   let createSwapTable: unit => promise<unit> = async () => {
     await %raw("sql`
-      CREATE TABLE \"public\".\"Swap\" (\"amount0\" numeric NOT NULL,\"amount1\" numeric NOT NULL,\"blockNumber\" integer NOT NULL,\"blockTimestamp\" integer NOT NULL,\"id\" text NOT NULL,\"liquidity\" numeric NOT NULL,\"liquidityPool\" text NOT NULL,\"recipient\" text NOT NULL,\"sender\" text NOT NULL,\"sqrtPriceX96\" numeric NOT NULL,\"tick\" numeric NOT NULL,\"transactionHash\" text NOT NULL, 
+      CREATE TABLE \"public\".\"Swap\" (\"amount0\" numeric NOT NULL,\"amount1\" numeric NOT NULL,\"id\" text NOT NULL,\"liquidity\" numeric NOT NULL,\"recipient\" text NOT NULL,\"sender\" text NOT NULL,\"sqrtPriceX96\" numeric NOT NULL,\"tick\" numeric NOT NULL, 
         db_write_timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP, 
         PRIMARY KEY (\"id\"));`")
   }
@@ -225,16 +225,12 @@ module Swap = {
         log_index INTEGER NOT NULL,
         \"amount0\" numeric NOT NULL,
         \"amount1\" numeric NOT NULL,
-        \"blockNumber\" integer NOT NULL,
-        \"blockTimestamp\" integer NOT NULL,
         \"id\" text NOT NULL,
         \"liquidity\" numeric NOT NULL,
-        \"liquidityPool\" text NOT NULL,
         \"recipient\" text NOT NULL,
         \"sender\" text NOT NULL,
         \"sqrtPriceX96\" numeric NOT NULL,
         \"tick\" numeric NOT NULL,
-        \"transactionHash\" text NOT NULL,
         db_write_timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP, 
         PRIMARY KEY (\"id\", chain_id, block_number, log_index));`")
   }

@@ -252,16 +252,12 @@ module.exports.readSwapEntities = (sql, entityIdArray) => sql`
 SELECT 
 "amount0",
 "amount1",
-"blockNumber",
-"blockTimestamp",
 "id",
 "liquidity",
-"liquidityPool",
 "recipient",
 "sender",
 "sqrtPriceX96",
-"tick",
-"transactionHash"
+"tick"
 FROM "public"."Swap"
 WHERE id IN ${sql(entityIdArray)};`;
 
@@ -271,31 +267,23 @@ const batchSetSwapCore = (sql, entityDataArray) => {
 ${sql(entityDataArray,
     "amount0",
     "amount1",
-    "blockNumber",
-    "blockTimestamp",
     "id",
     "liquidity",
-    "liquidityPool",
     "recipient",
     "sender",
     "sqrtPriceX96",
-    "tick",
-    "transactionHash"
+    "tick"
   )}
   ON CONFLICT(id) DO UPDATE
   SET
   "amount0" = EXCLUDED."amount0",
   "amount1" = EXCLUDED."amount1",
-  "blockNumber" = EXCLUDED."blockNumber",
-  "blockTimestamp" = EXCLUDED."blockTimestamp",
   "id" = EXCLUDED."id",
   "liquidity" = EXCLUDED."liquidity",
-  "liquidityPool" = EXCLUDED."liquidityPool",
   "recipient" = EXCLUDED."recipient",
   "sender" = EXCLUDED."sender",
   "sqrtPriceX96" = EXCLUDED."sqrtPriceX96",
-  "tick" = EXCLUDED."tick",
-  "transactionHash" = EXCLUDED."transactionHash"
+  "tick" = EXCLUDED."tick"
   `;
 }
 

@@ -39,16 +39,12 @@ type dynamicContractRegistryEntity = {
 type swapEntity = {
   amount0: Ethers.BigInt.t,
   amount1: Ethers.BigInt.t,
-  blockNumber: int,
-  blockTimestamp: int,
   id: id,
   liquidity: Ethers.BigInt.t,
-  liquidityPool: string,
   recipient: string,
   sender: string,
   sqrtPriceX96: Ethers.BigInt.t,
   tick: Ethers.BigInt.t,
-  transactionHash: string,
 }
 
 type entity = SwapEntity(swapEntity)
