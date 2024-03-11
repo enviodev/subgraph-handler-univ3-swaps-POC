@@ -7,8 +7,8 @@ type Swap @entity {
   sqrtPriceX96: BigInt!
   liquidity: BigInt!
   tick: BigInt!
-  blockNumber: Int!
-  blockTimestamp: Int!
-  transactionHash: String!
-  liquidityPool: String!
+  # blockNumber: Int!
+  # blockTimestamp: Int!
+  # transactionHash: String!
+  # liquidityPool: String!
 }
