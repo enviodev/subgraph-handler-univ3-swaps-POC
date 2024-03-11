@@ -6,7 +6,8 @@
     "build": "tsc --build",
     "watch": "tsc --watch",
     "codegen": "envio codegen",
-    "start": "ts-node generated/src/Index.bs.js"
+    "start": "ts-node generated/src/Index.bs.js",
+    "convert": "tsc src/mapping.ts # compile the assembly script to javascript"
   },
   "devDependencies": {
     "@types/node": "^18.16.1",
