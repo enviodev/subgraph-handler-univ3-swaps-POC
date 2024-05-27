@@ -1,6 +1,6 @@
 # Run
 
-`pnpm i && pnpm convert && pnpm envio dev`
+`pnpm i && pnpm convert && (cd generated && pnpm build) && pnpm envio dev`
 
 Relevant files
 - src/mapping.ts - the subgraph assemblyscript handler
